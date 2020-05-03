@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PostSummary from './PostSummary';
 
-class PostList extends Component {
-  render() {
-    return (
-      <div className="post-list">
-        <PostSummary />
-        <PostSummary />
-        <PostSummary />
-        <PostSummary />
-      </div>
-    );
-  }
-}
+const PostList = ({ posts }) => {
+  return (
+    <div className="post-list">
+      {posts && posts.map((post) => <PostSummary key={post.id} post={post} />)}
+    </div>
+  );
+};
 
 export default PostList;
